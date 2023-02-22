@@ -6,6 +6,7 @@ class WalletTransaction < ApplicationRecord
 
   after_save :send_notification
   after_save :refresh_loan_state
+  after_save :start_fraud_check
 
   private
 
@@ -20,5 +21,13 @@ class WalletTransaction < ApplicationRecord
 
   def refresh_loan_state
     loan.refresh_state
+  end
+
+  def start_fraud_check
+    FraudCheck.start(
+      wallet_transaction: self,
+      state: 'pending',
+      resolution: nil,
+    )
   end
 end

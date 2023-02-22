@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_22_140853) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_22_184006) do
+  create_table "fraud_checks", force: :cascade do |t|
+    t.integer "wallet_transaction_id", null: false
+    t.string "state", null: false
+    t.string "resolution"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wallet_transaction_id"], name: "index_fraud_checks_on_wallet_transaction_id"
+  end
+
   create_table "loans", force: :cascade do |t|
     t.integer "user_id", null: false
     t.decimal "amount", null: false

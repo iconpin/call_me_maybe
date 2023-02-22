@@ -1,8 +1,8 @@
 class Notification < ApplicationRecord
-  belongs_to :user, required: true
+  belongs_to :user
 
-  belongs_to :loan, required: false
-  belongs_to :wallet_transaction, required: false
+  belongs_to :loan, optional: true
+  belongs_to :wallet_transaction, optional: true
 
   def self.send_notification(...)
     create(...)

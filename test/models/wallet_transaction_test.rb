@@ -62,4 +62,20 @@ class WalletTransactionTest < ActiveSupport::TestCase
 
     assert_equal 'unpaid', loans(:clara_100).state
   end
+
+  test "triggers a fraud check" do
+    wallet_transaction =
+      WalletTransaction.create!(
+        wallet: wallets(:clara_tabapay),
+        loan: loans(:clara_100),
+        amount: 100,
+        status: "pending"
+      )
+
+    fraud_check = FraudCheck.last
+
+    assert_equal wallet_transaction, fraud_check.wallet_transaction
+    assert_equal "pending", fraud_check.state
+    assert_nil fraud_check.resolution
+  end
 end
