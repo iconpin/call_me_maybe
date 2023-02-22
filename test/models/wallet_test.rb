@@ -1,7 +1,7 @@
 require "test_helper"
 
 class WalletTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "there are fixtures" do
+    assert wallets.count > 0
+  end
 end

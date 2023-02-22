@@ -4,12 +4,12 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-alice_tabapay_payment:
+alice_tabapay_repayment:
   wallet: alice_tabapay
   loan: alice_100
   amount: 100
 
-bob_tabapay_partial_payment:
+bob_tabapay_partial_repayment:
   wallet: bob_tabapay
   loan: bob_100
   amount: 50

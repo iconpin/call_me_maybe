@@ -1,0 +1,26 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+alice_hello:
+  user: alice
+  text: "Hello Alice, how are you doing?"
+
+alice_loan_repayment:
+  user: alice
+  loan: alice_100
+  wallet_transaction: alice_tabapay_repayment
+  text: "Hey Alice, we've successfully processed your $100 loan repayment"
+  
+bob_partial_repayment:
+  user: bob
+  loan: alice_100
+  wallet_transaction: bob_tabapay_partial_repayment
+  text: "Hello Bob, thank you for your $50 loan repayment, $50 more and it'll be fully repaid"
+
+clara_repayment_reminder:
+  user: clara
+  loan: clara_100
+  text: "Hey Clara, please don't forget to repay your $100 loan"

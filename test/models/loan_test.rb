@@ -1,7 +1,7 @@
 require "test_helper"
 
 class LoanTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "there are fixtures" do
+    assert loans.count > 0
+  end
 end

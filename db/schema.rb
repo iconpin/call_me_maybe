@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_21_180814) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_22_113200) do
   create_table "loans", force: :cascade do |t|
     t.integer "user_id", null: false
     t.decimal "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_loans_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "loan_id"
+    t.integer "wallet_transaction_id"
+    t.string "text", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loan_id"], name: "index_notifications_on_loan_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+    t.index ["wallet_transaction_id"], name: "index_notifications_on_wallet_transaction_id"
   end
 
   create_table "users", force: :cascade do |t|
