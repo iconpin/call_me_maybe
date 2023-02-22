@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_22_133756) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_22_140853) do
   create_table "loans", force: :cascade do |t|
     t.integer "user_id", null: false
     t.decimal "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "state", null: false
     t.index ["user_id"], name: "index_loans_on_user_id"
   end
 

@@ -7,11 +7,14 @@
 alice_100:
   user: alice
   amount: 100
+  state: unpaid
 
 bob_100:
   user: bob
   amount: 100
+  state: unpaid
 
 clara_100:
   user: clara
   amount: 100
+  state: unpaid

@@ -5,6 +5,7 @@ class WalletTransaction < ApplicationRecord
   validates :status, inclusion: { in: %w[pending success failure] }
 
   after_save :send_notification
+  after_save :refresh_loan_state
 
   private
 
@@ -15,5 +16,9 @@ class WalletTransaction < ApplicationRecord
       wallet_transaction: self,
       text: "Thank you #{loan.user.name} for your $#{self.amount.to_i} loan repayment!",
     )
+  end
+
+  def refresh_loan_state
+    loan.refresh_state
   end
 end
