@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_22_113200) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_22_133756) do
   create_table "loans", force: :cascade do |t|
     t.integer "user_id", null: false
     t.decimal "amount", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_113200) do
     t.decimal "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", null: false
     t.index ["loan_id"], name: "index_wallet_transactions_on_loan_id"
     t.index ["wallet_id"], name: "index_wallet_transactions_on_wallet_id"
   end

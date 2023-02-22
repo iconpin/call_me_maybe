@@ -8,8 +8,10 @@ alice_tabapay_repayment:
   wallet: alice_tabapay
   loan: alice_100
   amount: 100
+  status: success
 
 bob_tabapay_partial_repayment:
   wallet: bob_tabapay
   loan: bob_100
   amount: 50
+  status: success
