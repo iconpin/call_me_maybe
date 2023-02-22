@@ -11,7 +11,7 @@ class FraudSubscriberTest < ActiveSupport::TestCase
       )
 
     assert_changes -> { FraudCheck.count }, from: FraudCheck.count, to: FraudCheck.count + 1 do
-      FraudSubscriber.new.wallet_transaction_updated(wallet_transaction)
+      FraudSubscriber.new.wallet_transaction_updated(wallet_transaction:)
     end
 
     fraud_check = FraudCheck.last

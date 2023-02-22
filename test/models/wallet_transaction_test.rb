@@ -14,11 +14,11 @@ class WalletTransactionTest < ActiveSupport::TestCase
         status: "success"
       )
 
-    assert_broadcast(:wallet_transaction_updated, wallet_transaction) do
+    assert_broadcast(:wallet_transaction_updated, wallet_transaction:) do
       wallet_transaction.save!
     end
 
-    assert_broadcast(:wallet_transaction_updated, wallet_transaction) do
+    assert_broadcast(:wallet_transaction_updated, wallet_transaction:) do
       wallet_transaction.update!(status: 'failure')
     end
   end

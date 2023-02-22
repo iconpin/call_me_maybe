@@ -1,5 +1,5 @@
 class NotificationSubscriber
-  def wallet_transaction_updated(wallet_transaction)
+  def wallet_transaction_updated(wallet_transaction:)
     loan = wallet_transaction.loan
     user = wallet_transaction.loan.user
 

@@ -11,7 +11,7 @@ class LoanSubscriberTest < ActiveSupport::TestCase
       )
 
     assert_changes -> { loans(:clara_100).reload.state }, from: 'unpaid', to: 'repaid' do
-      LoanSubscriber.new.wallet_transaction_updated(wallet_transaction)
+      LoanSubscriber.new.wallet_transaction_updated(wallet_transaction:)
     end
   end
 
@@ -25,7 +25,7 @@ class LoanSubscriberTest < ActiveSupport::TestCase
       )
 
     assert_no_changes -> { loans(:clara_100).reload.state }, from: 'unpaid' do
-      LoanSubscriber.new.wallet_transaction_updated(wallet_transaction)
+      LoanSubscriber.new.wallet_transaction_updated(wallet_transaction:)
     end
   end
 
@@ -39,7 +39,7 @@ class LoanSubscriberTest < ActiveSupport::TestCase
       )
 
     assert_no_changes -> { loans(:clara_100).reload.state }, from: 'unpaid' do
-      LoanSubscriber.new.wallet_transaction_updated(wallet_transaction)
+      LoanSubscriber.new.wallet_transaction_updated(wallet_transaction:)
     end
   end
 end

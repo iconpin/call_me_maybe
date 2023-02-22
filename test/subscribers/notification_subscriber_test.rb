@@ -11,7 +11,7 @@ class NotificationSubscriberTest < ActiveSupport::TestCase
       )
 
     assert_changes -> { Notification.count }, from: Notification.count, to: Notification.count + 1 do
-      NotificationSubscriber.new.wallet_transaction_updated(wallet_transaction)
+      NotificationSubscriber.new.wallet_transaction_updated(wallet_transaction:)
     end
 
     notification = Notification.last

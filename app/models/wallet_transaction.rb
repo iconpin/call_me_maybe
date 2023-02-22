@@ -11,6 +11,6 @@ class WalletTransaction < ApplicationRecord
   private
 
   def broadcast_updated_event
-    broadcast(:wallet_transaction_updated, self)
+    broadcast(:wallet_transaction_updated, wallet_transaction: self)
   end
 end
